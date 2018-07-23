@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.rapidpm</groupId>
     <artifactId>rapidpm-dependencies</artifactId>
-    <version>4.0.0</version>
+    <version>4.0.1</version>
   </parent>
 
   <groupId>org.rapidpm.vaadin</groupId>
@@ -86,7 +86,7 @@
 
     <!--RapidPM-->
     <rapidpm-functional-reactive.version>0.7.0</rapidpm-functional-reactive.version>
-    <rapidpm-dependencies.version>4.0.0</rapidpm-dependencies.version>
+    <rapidpm-dependencies.version>4.0.1</rapidpm-dependencies.version>
 
     <!--Vaadin-->
     <vaadin.version>10.0.1</vaadin.version>
@@ -95,7 +95,7 @@
     <slf4j.version>1.7.25</slf4j.version>
 
     <!--Meecrowave-->
-    <meecrowave.version>1.2.2-SNAPSHOT</meecrowave.version>
+    <meecrowave.version>1.2.3</meecrowave.version>
     <junit-jupiter-engine.version>5.1.1</junit-jupiter-engine.version>
   </properties>
 
