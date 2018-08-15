@@ -13,31 +13,25 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package junit.org.rapidpm.vaadin.helloworld.server;
+package junit.org.rapidpm.vaadin.v10.tb.demo;
 
-import org.apache.meecrowave.Meecrowave;
-import org.apache.meecrowave.junit5.MonoMeecrowaveConfig;
-import org.apache.meecrowave.testing.ConfigurationInject;
+
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.rapidpm.vaadin.addons.testbench.junit5.extensions.unittest.VaadinWebUnitTest;
 
-//@MeecrowaveConfig
-@MonoMeecrowaveConfig
-public class MainTest {
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-  @ConfigurationInject
-  private Meecrowave.Builder config;
-
-  @Test
-  public void run01() {
-    System.out.println("(01) http://localhost:" + config.getHttpPort());
-    // asserts
-  }
+@VaadinWebUnitTest
+public class VaadinAppTest {
 
   @Test
-  public void run02() {
-    System.out.println("(02) http://localhost:" + config.getHttpPort());
-    // asserts
+  @DisplayName("Hello World - Click twice")
+  //@Disabled("classloader challenges with Atmosphere")
+  void test001(VaadinAppPageObject pageObject) {
+    pageObject.loadPage();
+    assertEquals(0, pageObject.clickCount());
+    pageObject.click();
+    assertEquals(1, pageObject.clickCount());
   }
-
-
 }
