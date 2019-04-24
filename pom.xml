@@ -21,6 +21,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
+
+  <parent>
+    <groupId>org.rapidpm</groupId>
+    <artifactId>rapidpm-dependencies</artifactId>
+    <version>04.00.16-RPM</version>
+  </parent>
+
+
   <groupId>org.rapidpm.vaadin</groupId>
   <artifactId>nano-vaadin-meecrowave-v10</artifactId>
   <version>01.00.00-RPM-SNAPSHOT</version>
@@ -78,16 +86,10 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <webdriverextensions-maven-plugin.version>3.1.3</webdriverextensions-maven-plugin.version>
-
-    <!--RapidPM-->
 
     <!--Vaadin-->
-    <vaadin.version>13.0.2</vaadin.version>
+    <vaadin.version>13.0.4</vaadin.version>
     <meecrowave.version>1.2.7</meecrowave.version>
-
-    <rapidpm-logger-adapter.version>01.00.01-RPM</rapidpm-logger-adapter.version>
-    <rapidpm-functional-reactive.version>01.00.02-RPM</rapidpm-functional-reactive.version>
   </properties>
 
   <repositories>
@@ -98,7 +100,7 @@
     </repository>
   </repositories>
 
-  <!-- Just to disable any accidential deployment to maven.central -->
+  <!-- Just to disable any accidental deployment to maven.central -->
   <distributionManagement>
     <repository>
       <id>localhost</id>
@@ -120,41 +122,10 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
-      <dependency>
-        <groupId>org.rapidpm</groupId>
-        <artifactId>testbench-ng-bom</artifactId>
-        <version>00.07.06-RPM</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
-      <dependency>
-        <groupId>org.rapidpm</groupId>
-        <artifactId>testbench-ng-bom-vaadin-v10</artifactId>
-        <version>00.07.06-RPM</version>
-        <scope>import</scope>
-        <type>pom</type>
-      </dependency>
     </dependencies>
   </dependencyManagement>
 
   <dependencies>
-    <dependency>
-      <groupId>org.rapidpm</groupId>
-      <artifactId>rapidpm-logger-adapter</artifactId>
-      <version>${rapidpm-logger-adapter.version}</version>
-    </dependency>
-
-    <dependency>
-      <groupId>org.rapidpm</groupId>
-      <artifactId>rapidpm-functional-reactive</artifactId>
-      <version>${rapidpm-functional-reactive.version}</version>
-    </dependency>
-
-<!--    <dependency>-->
-<!--      <groupId>org.rapidpm</groupId>-->
-<!--      <artifactId>testbench-ng-m-framework-v10</artifactId>-->
-<!--    </dependency>-->
-
     <!--Infrastructure-->
     <dependency>
       <groupId>org.apache.meecrowave</groupId>
@@ -162,7 +133,6 @@
       <version>${meecrowave.version}</version>
       <scope>compile</scope>
     </dependency>
-
 
     <!--Vaadin -->
     <dependency>
@@ -175,34 +145,12 @@
       <artifactId>vaadin-lumo-theme</artifactId>
     </dependency>
 
-<!--    <dependency>-->
-<!--      <groupId>org.rapidpm</groupId>-->
-<!--      <artifactId>testbench-ng-m-container-init-meecrowave</artifactId>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.rapidpm</groupId>-->
-<!--      <artifactId>testbench-ng-m-pageobject-vaadin-generic</artifactId>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
-<!--    <dependency>-->
-<!--      <groupId>org.rapidpm</groupId>-->
-<!--      <artifactId>testbench-ng-m-pageobject-vaadin-v10-tb</artifactId>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
+    <dependency>
+      <groupId>com.github.vaadin-developer.id-generator-for-flow</groupId>
+      <artifactId>id-generator-for-flow-impl</artifactId>
+      <version>00.08.00-RPM</version>
+    </dependency>
 
-    <!--For TestUI only-->
-<!--    <dependency>-->
-<!--      <groupId>com.vaadin</groupId>-->
-<!--      <artifactId>vaadin-testbench-core</artifactId>-->
-<!--      <exclusions>-->
-<!--        <exclusion>-->
-<!--          <groupId>org.seleniumhq.selenium</groupId>-->
-<!--          <artifactId>selenium-server</artifactId>-->
-<!--        </exclusion>-->
-<!--      </exclusions>-->
-<!--      <scope>test</scope>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
@@ -243,34 +191,6 @@
         <configuration>
           <!-- das brauchts leider, sonst muessen wir ein web.xml tippen... -->
           <failOnMissingWebXml>false</failOnMissingWebXml>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>com.github.webdriverextensions</groupId>
-        <artifactId>webdriverextensions-maven-plugin</artifactId>
-        <executions>
-          <execution>
-            <goals>
-              <goal>install-drivers</goal>
-            </goals>
-          </execution>
-        </executions>
-        <configuration>
-          <keepDownloadedWebdrivers>true</keepDownloadedWebdrivers>
-          <!--Distributed FS-->
-          <!--<installationDirectory>/Users/andidev/drivers</installationDirectory>-->
-          <installationDirectory>_data/webdrivers</installationDirectory>
-          <drivers>
-            <driver>
-              <name>chromedriver</name>
-            </driver>
-            <!--<driver>-->
-            <!--<name>operadriver</name>-->
-            <!--</driver>-->
-            <!--<driver>-->
-            <!--<name>geckodriver</name>-->
-            <!--</driver>-->
-          </drivers>
         </configuration>
       </plugin>
     </plugins>
