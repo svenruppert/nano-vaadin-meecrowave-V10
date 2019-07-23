@@ -21,6 +21,7 @@ import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.Div;
 import com.vaadin.flow.component.html.Span;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.page.Viewport;
 import com.vaadin.flow.router.Route;
 import org.rapidpm.dependencies.core.logger.HasLogger;
 
@@ -29,7 +30,11 @@ import static java.lang.String.valueOf;
 //import static org.rapidpm.vaadin.addons.framework.ComponentIDGenerator.spanID;
 
 @Route("")
-public class VaadinApp extends Composite<Div> implements HasLogger {
+@Viewport("width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes, viewport-fit=cover")
+public class VaadinApp
+//    extends AppLayout
+    extends Composite<Div>
+    implements HasLogger {
 
   // read http://vaadin.com/testing for more infos
 //  public static final String BTN_CLICK_ME   = buttonID().apply(VaadinApp.class, "btn-click-me");
@@ -44,12 +49,25 @@ public class VaadinApp extends Composite<Div> implements HasLogger {
   public VaadinApp() {
 //    btnClickMe.setId(BTN_CLICK_ME);
     btnClickMe.addClickListener(event -> lbClickCount.setText(valueOf(++clickcount)));
-
 //    lbClickCount.setId(LB_CLICK_COUNT);
 
     //set the main Component
     logger().info("setting now the main ui content..");
     getContent().add(layout);
 
+//    addToNavbar(true, new DrawerToggle(), new Image("https://i.imgur.com/GPpnszs.png ", "Vaadin Logo") {{
+//      setHeight("44px");
+//    }});
+//
+//    addToDrawer(new Tabs(new Tab("Home"), new Tab("About")) {{
+//      setOrientation(Tabs.Orientation.VERTICAL);
+//    }});
+//
+//    logger().info("and now..  setting the main content.. ");
+////    setContent(new Button("click me..... ") {{
+////      setWidth("500px");
+////    }});
+//
+//    setContent(menuBar());
   }
 }
