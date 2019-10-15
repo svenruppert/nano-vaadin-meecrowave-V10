@@ -24,7 +24,7 @@
   <parent>
     <groupId>org.rapidpm</groupId>
     <artifactId>rapidpm-vaadin-dependencies-v14</artifactId>
-    <version>04.01.06-RPM</version>
+    <version>04.04.00-RPM</version>
   </parent>
 
 
@@ -78,14 +78,12 @@
 
   <properties>
     <jdk.version>1.8</jdk.version>
-    <kotlin.version>1.3.41</kotlin.version>
-    <kotlin.compiler.incremental>true</kotlin.compiler.incremental>
 
     <!--Vaadin-->
     <vaadin-productionMode>false</vaadin-productionMode>
     <vaadin-install-nodejs>true</vaadin-install-nodejs>
 
-    <meecrowave.version>1.2.8</meecrowave.version>
+    <meecrowave.version>1.2.9</meecrowave.version>
   </properties>
 
   <!-- Just to disable any accidental deployment to maven.central -->
@@ -122,6 +120,15 @@
       <scope>compile</scope>
     </dependency>
 
+
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-button-flow</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>com.vaadin</groupId>
+      <artifactId>vaadin-ordered-layout-flow</artifactId>
+    </dependency>
     <!--    <dependency>-->
     <!--      <groupId>com.github.vaadin-developer.id-generator-for-flow</groupId>-->
     <!--      <artifactId>id-generator-for-flow-impl</artifactId>-->
